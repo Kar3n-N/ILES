@@ -16,7 +16,7 @@ class Logbook(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     activities = models.TextField()
-    status = models.TextField(max_length=20, 
+    status = models.CharField(max_length=20, 
         choices = STATUS, 
         default = 'draft'
     )
