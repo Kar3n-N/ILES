@@ -95,7 +95,7 @@ class LogbookViewSet(viewsets.ModelViewSet):
             )
 
         if logbook.status != "draft":
-            retrun Response(
+            return Response(
                 {"error": "Only draft logs can be deleted"},
                 status=status.HTTP_400_BAD_REQUEST
             )

@@ -6,3 +6,9 @@ documentation
 .env.development.local
 .env.test.local
 .env.production.loca
+backend/iles/__pycache__
+backend/logbook/__pycache__
+backend/users/__pycache__
+backend/iles/__pycache__
+backend/logbook/__pycache__
+backend/users/__pycache__
