@@ -1,12 +1,12 @@
 from rest_framework.permissions import BasePermission,SAFE_METHODS
 
 class IsStudent(BasePermission):
-    messsage = "Access restricted to student interns only."
+    message = "Access restricted to student interns only."
     
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and 
-            request.user.role = 'student'
+            request.user.role == 'student'
         )
 
 
@@ -17,7 +17,7 @@ class IsWorkplaceSupervisor(BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and
-            request.user.role = 'workplace_supervisor'
+            request.user.role == 'workplace_supervisor'
         )
 
 
@@ -28,7 +28,7 @@ class IsAcademicSupervisor(BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and
-            request.user.role = 'academic_supervisor'
+            request.user.role == 'academic_supervisor'
         )
 
 
@@ -50,7 +50,7 @@ class IsAdmin(BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and
-            request.user.role = 'internship_admin'
+            request.user.role == 'internship_admin'
         )
 
 
@@ -58,15 +58,15 @@ class IsOwnerOrAdmin(BasePermission):
 
 
     def has_object_permission(self, request, view, obj):
-        if request.user.role = 'internship_admin':
+        if request.user.role == 'internship_admin':
             return True
         
         if hasattr(obj, 'student'):
-            return obj.student = request.user
+            return obj.student == request.user
         if hasattr(obj, 'reviewer'):
-            return obj.reviewer = request.user
-        if hasattr(obj, 'evalutor'):
-            return obj.evalutor = request.user
+            return obj.reviewer == request.user
+        if hasattr(obj, 'evaluator'):
+            return obj.evaluator == request.user
         
         return False 
 
@@ -75,7 +75,7 @@ class ReadOnlyForSupervisor(BasePermission):
     def has_permission(self, request, view):
         if not request.user.is_authenticated:
             return False
-        if request.user.role = 'internship_admin':
+        if request.user.role == 'internship_admin':
             return True
         if request.user.role in ['workplace_supervisor', 'academic_supervisor']:
             return request.method in SAFE_METHODS
