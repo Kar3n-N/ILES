@@ -80,3 +80,15 @@ class PlacementViewset(viewsets.ModelViewSet):
             )
         placement = self.get_object()
         logbook_count = placement.Weekly_logs.count()
+
+
+
+        if logbook_count >0:
+            return Response(
+                {
+                    "error": f"Cannot delete placement with {logbook_count} logbook entries.Archive it instead."
+                },
+                status=status.HTTP_400_BAD_REQUEST
+
+
+            super().destroy(request,*args,**kwargs)
