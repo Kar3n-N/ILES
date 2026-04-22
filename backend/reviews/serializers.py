@@ -43,6 +43,7 @@ class LogReviewSerializer(serializers.ModelSerializer):
         return f"{obj.reviewer.first_name} {obj.reviewer.last_name}".strip()
 
 
+# LogReviewCreate Serializer
 class LogReviewCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = LogReview
