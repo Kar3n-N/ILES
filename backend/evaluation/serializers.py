@@ -9,12 +9,12 @@ class EvaluationCriteriaSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'weight']
 
     def validate_weight(self, value):
-          """Weight must be between 0.01 and 1.00."""
-          if value <= 0 or value > 1:
-               raise serializers.ValidationError(
-                    "Weight must be between 0.01 and 1.00"
-               )
-          return value
+        """Weight must be between 0.01 and 1.00."""
+        if value <= 0 or value > 1:
+            raise serializers.ValidationError("Weight must be between 0.01 and 1.00")
+        return value
+
+
 class EvaluationSerializer(serializers.ModelSerializer):
      """
      Fill serializer for reading evalution data.
@@ -59,6 +59,27 @@ class EvaluationSerializer(serializers.ModelSerializer):
                'student_username',
           ]
           read_only_fields = ['weighted_score', 'evaluated_at', 'evalutor']
+
+    class Meta:
+        model = Evaluation
+        fields = [
+            "id",
+            "placement",
+            "company_name",
+            "evalutor",
+            "evalutor_username",
+            "evalutor_type",
+            "evalutor_type_display",
+            "criteria",
+            "criteria_name",
+            "criteria_weight",
+            "score",
+            "weight_scoreis_finalised",
+            "evaluated_at",
+            "student_username",
+        ]
+        read_only_fields = ["weighted_score", "evaluated_at", "evalutor"]
+
 
 class EvaluationCreateSerializer(serializers.ModelSerializer):
      """
