@@ -16,6 +16,7 @@ class EvaluationCriteria(models.Model):
     """
 
     name = models.CharField(max_length=100)
+    
     description = models.TextField(blank=True)
     weight = models.FloatField(
         help_text="Decimal weight, e.g. 0.40 for 40%. All criteria weights must sum to 1.0"
