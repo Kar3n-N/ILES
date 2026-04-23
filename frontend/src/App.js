@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 
 import { AuthProvider } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 import ProtectedRoute from "./components/routing/ProtectedRoute";
 
@@ -37,73 +38,79 @@ import "./styles/base.css";
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          {/* Public routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          {/* Student routes */}
-          <Route element={<ProtectedRoute allowedRoles={["student"]} />}>
-            <Route element={<Layout />}>
-              <Route
-                path="/student/dashboard"
-                element={<StudentDashboardPage />}
-              />
-              <Route path="/student/logbook" element={<LogbookPage />} />
-              <Route path="/student/progress" element={<ProgressPage />} />
-              <Route path="/student/schedule" element={<SchedulePage />} />
-              <Route path="/student/documents" element={<DocumentsPage />} />
-              <Route path="/student/profile" element={<ProfilePage />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            {/* Public routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            {/* Student routes */}
+            <Route element={<ProtectedRoute allowedRoles={["student"]} />}>
+              <Route element={<Layout />}>
+                <Route
+                  path="/student/dashboard"
+                  element={<StudentDashboardPage />}
+                />
+                <Route path="/student/logbook" element={<LogbookPage />} />
+                <Route path="/student/progress" element={<ProgressPage />} />
+                <Route path="/student/schedule" element={<SchedulePage />} />
+                <Route path="/student/documents" element={<DocumentsPage />} />
+                <Route path="/student/profile" element={<ProfilePage />} />
+              </Route>
             </Route>
-          </Route>
-          {/* Workplace Supervisor */}
-          <Route
-            element={<ProtectedRoute allowedRoles={["workplace_supervisor"]} />}
-          >
-            <Route element={<Layout />}>
-              <Route
-                path="/supervisor/dashboard"
-                element={<WorkplaceSupervisorDashboardPage />}
-              />
-              <Route
-                path="/supervisor/evaluation"
-                element={<WorkplaceEvaluationPage />}
-              />
+            {/* Workplace Supervisor */}
+            <Route
+              element={
+                <ProtectedRoute allowedRoles={["workplace_supervisor"]} />
+              }
+            >
+              <Route element={<Layout />}>
+                <Route
+                  path="/supervisor/dashboard"
+                  element={<WorkplaceSupervisorDashboardPage />}
+                />
+                <Route
+                  path="/supervisor/evaluation"
+                  element={<WorkplaceEvaluationPage />}
+                />
+              </Route>
             </Route>
-          </Route>
-          {/* Academic Supervisor */}
-          <Route
-            element={<ProtectedRoute allowedRoles={["academic_supervisor"]} />}
-          >
-            <Route element={<Layout />}>
-              <Route
-                path="/academic/dashboard"
-                element={<AcademicSupervisorDashboardPage />}
-              />
-              <Route
-                path="/academic/evaluation"
-                element={<AcademicEvaluationPage />}
-              />
+            {/* Academic Supervisor */}
+            <Route
+              element={
+                <ProtectedRoute allowedRoles={["academic_supervisor"]} />
+              }
+            >
+              <Route element={<Layout />}>
+                <Route
+                  path="/academic/dashboard"
+                  element={<AcademicSupervisorDashboardPage />}
+                />
+                <Route
+                  path="/academic/evaluation"
+                  element={<AcademicEvaluationPage />}
+                />
+              </Route>
             </Route>
-          </Route>
-          {/* Admin Routes*/}
-          <Route
-            element={<ProtectedRoute allowedRoles={["internship_admin"]} />}
-          >
-            <Route element={<Layout />}>
-              <Route path="/admin" element={<AdminDashboardPage />} />
-              <Route
-                path="/admin/placements"
-                element={<AdminPlacementsPage />}
-              />
+            {/* Admin Routes*/}
+            <Route
+              element={<ProtectedRoute allowedRoles={["internship_admin"]} />}
+            >
+              <Route element={<Layout />}>
+                <Route path="/admin" element={<AdminDashboardPage />} />
+                <Route
+                  path="/admin/placements"
+                  element={<AdminPlacementsPage />}
+                />
+              </Route>
             </Route>
-          </Route>
-          <Route path="*" element={<NotPageFound />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+            <Route path="*" element={<NotPageFound />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
