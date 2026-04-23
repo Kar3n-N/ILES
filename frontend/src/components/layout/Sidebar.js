@@ -10,5 +10,16 @@ const NAV_CONFIG = {
     { label: 'Schedule', path: '/student/schedule', icon: '📅' },
     { label: 'Documents', path: '/student/documents', icon: '📄' },
     { label: 'My Profile', path: '/student/profile', icon: '👤' },
+  
   ],
+
+  workplace_supervisor: [
+    { label: 'Dashboard', path: '/supervisor/dashboard', icon: '🏠' },
+    { label: 'My Students', path: '/supervisor/students', icon: '👥' },
+    { label: 'Evaluations', path: '/supervisor/evaluation', icon: '⭐' },
+    { label: 'My Profile', path: '/supervisor/profile', icon: '👤' },
+
+  ],
+
+  academic_supervisor
 }
