@@ -21,5 +21,10 @@ const NAV_CONFIG = {
 
   ],
 
-  academic_supervisor
+  academic_supervisor: [
+    { label: 'Dashboard', path: '/academic/dashboard', icon: '🏠' },
+    { label: 'Evaluations', path: '/academic/evaluation', icon: '⭐' },
+    { label: 'Students', path: '/academic/students', icon: '👥' },
+    
+  ]
 }
