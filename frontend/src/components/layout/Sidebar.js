@@ -35,3 +35,23 @@ const NAV_CONFIG = {
     { label: 'Criteria', path: '/admin/criteria', icon: '📋' },
   ],
 };
+
+function Sideber() {
+  const { user, logout } = useAuth();
+  const navItems = NAV_CONFIG[user?.role] || [];
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-user">
+        <div className="sidebar-avatar">
+          {user?.username?.slice(0, 2).toUpperCase()}
+        </div>
+        <div>
+          <p className="sidebar-name">{user?.username}</p>
+          <p className="sidebar-role">{user?.role}</p>
+        </div>
+      </div>
+      
+    </aside>
+  )
+}
