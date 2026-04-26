@@ -46,6 +46,38 @@ function Navbar() {
           })}
         </p>
       </div>
+
+      <a href="#main-content" className="visually-hidden">
+        Skip to main content
+      </a>
+
+      {user && (
+        <div className="navbar-right">
+          {/* Navigation Links are rendered as ghost buttons to match UI style*/}
+          <nav className="navbar-nav-links" aria-label="Main navigation">
+            {navlinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="btn btn-ghost btn-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="navbar-user-group">
+            <span className={`badge badge-role-${user.role.split("_")[0]}`}>
+              {user.role.replace("_", " ")}
+            </span>
+
+            <div className="navbar-avatar">
+              {user.first_name?.[0]}
+              {user.last_name?.[0]}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
