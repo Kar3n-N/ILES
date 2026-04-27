@@ -1,91 +1,61 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./Navbar.css";
 
+// TODO: ILES-21: Add ROLE_NAV_LINK and ROLE_CONFIG constanst here
 const ROLE_NAV_LINKS = {
   student: [
-    { path: "/student/dashboard", label: "Dashboard" },
-    { path: "/student/logbook", label: "My Logbook" },
+    { path: "/student/dashboard", label: "Overview", icon: "⌂" },
+    { path: "/student/logbook", label: "My Logbook", icon: "✎" },
+    { path: "/student/progress", label: "Progress", icon: "↗" },
   ],
   workplace_supervisor: [
-    { path: "/supervisor/dashboard", label: "Dashboard" },
-    { path: "supervisor/evaluation", label: "Evaluations" },
+    { path: "/supervisor/dashboard", label: "Dashboard", icon: "⌂" },
+    { path: "/supervisor/evaluation", label: "Evaluations", icon: "★" },
   ],
   academic_supervisor: [
-    { path: "/supervisor/dashboard", label: "Dashboard" },
-    { path: "/supervisor/evaluation", label: "Evaluations" },
+    { path: "/supervisor/dashboard", label: "Dashboard", icon: "⌂" },
+    { path: "/supervisor/evaluation", label: "Evaluations", icon: "★" },
   ],
-  internship_admin: [{ path: "/admin", label: "Admin Dashboard" }],
+  internship_admin: [{ path: "/admin", label: "Admin Dashboard", icon: "⌂" }],
 };
 
+const ROLE_CONFIG = {
+  student: {
+    label: "Student",
+    color: "#1a365d",
+    accent: "#2b6cb0",
+    badge: "STU",
+  },
+  workplace_supervisor: {
+    label: "Supervisor",
+    color: "#276749",
+    accent: "#38a169",
+    badge: "SUP",
+  },
+  academic_supervisor: {
+    label: "Academic Sup.",
+    color: "#c05621",
+    accent: "#dd6b20",
+    badge: "ACS",
+  },
+  internship_admin: {
+    label: "Admin",
+    color: "#6b46c1",
+    accent: "#805ad5",
+    badge: "ADM",
+  },
+};
+// TODO: ILES-22: Add brand/ clock JSX
+// TODO: ILES-23: Add nav links JSX
+// TODO: ILES-24: Add user controls and dropdown JSX
+
 function Navbar() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-  const navlinks = ROLE_NAV_LINKS[user?.role] ?? [];
-
-  function handleLogout() {
-    logout();
-    navigate("/login");
-  }
-
-  // Get current active label for the breadcrumb-style title
-  const activeLabel =
-    navlinks.find((l) => window.location.pathname.includes(l.path))?.label ||
-    "ILES";
-
+  // Placeholder -- next tickets will fill this in
   return (
-    <header className="navbar" role="banner">
-      <div className="navbar-left">
-        <h1 className="navbar-Title">{activeLabel}</h1>
-        <p className="navbar-subtitle">
-          {new Date().toLocaleDateString("en-US", {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-          })}
-        </p>
-      </div>
-
-      <a href="#main-content" className="visually-hidden">
-        Skip to main content
-      </a>
-
-      {user && (
-        <div className="navbar-right">
-          {/* Navigation Links are rendered as ghost buttons to match UI style*/}
-          <nav className="navbar-nav-links" aria-label="Main navigation">
-            {navlinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="btn btn-ghost btn-sm"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="navbar-user-group">
-            <span className={`badge badge-role-${user.role.split("_")[0]}`}>
-              {user.role.replace("_", " ")}
-            </span>
-
-            <div className="navbar-avatar">
-              {user.first_name?.[0]}
-              {user.last_name?.[0]}
-            </div>
-
-            <button
-              className="btn btn-danger btn-sm"
-              onClick={handleLogout}
-              type="button"
-            >
-              Sign Out
-            </button>
-          </div>
-        </div>
-      )}
+    <header className="iles-navbar" role="banner">
+      <p style={{ padding: "16px" }}>Navbar coming soon</p>
     </header>
   );
 }
