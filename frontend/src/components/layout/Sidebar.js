@@ -26,8 +26,57 @@ const NAV_CONFIG = {
             },
         ],
     },
-    
-}
+    Workplace_supervisor: {
+        accentColor: "#276749",
+        accentLight: "#f0fff4",
+        brandLabel: "Workplace Supervisor",
+        sections: [
+            {
+                title: null,
+                items: [
+                    { path: "/supervisor/dashboard", label: "Dashboard", icon: <HomeIcon />,   description: "Review queue overview" },
+                    { path: "/supervisor/students", label: "My Students", icon: <UsersIcon/>,   description: "Assigned interns" },
+                    { path: "/supervisor/evaluation", label: "Evaluations", icon: <StarIcon />,   description: "Score & grade students" },
+                    { path: "/supervisor/profile", label: "My Profile", icon: <ProfileIcon />,   description: "Your information" },
+                ],
+            },
+        ],
+    },
+    academic_supervisor: {
+        accentColor: "#c05621",
+        accentLight: "#fff7ed",
+        brandLabel: "Academic Supervisor",
+        sections: [
+            {
+                title: null,
+                items: [
+                    { path: "/supervisor/dashboard", label: "Dashboard", icon: <HomeIcon />,   description: "Evaluation overview" },
+                    { path: "/supervisor/students", label: "Students", icon: <UsersIcon/>,   description: "Assigned students" },
+                    { path: "/supervisor/evaluation", label: "Evaluations", icon: <StarIcon />,   description: "Weighted scoring" },
+                ],
+            },
+        ],
+    },
+
+    internship_admin: {
+        accentColor: "#6b46c1",
+        accentLight: "#faf5ff",
+        brandLabel: "Administration",
+        sections: [
+            {
+                title: null,
+                items: [
+                    { path: "/admin/dashboard", label: "Dashboard", icon: <HomeIcon />,   description: "System overview" },
+                    { path: "/admin/placements", label: "Placements", icon: <BuildingIcon />,   description: "Company placements" },
+                    { path: "/admin/users", label: "Users", icon: <UserIcon />,   description: "Manage all accounts" },
+                    { path: "/admin/criteria", label: "Criteria", icon: <ClipboardIcon />,   description: "Evaluation criteria" },
+                ],
+            },
+        ],
+    },
+
+
+};
 
 
 function HomeIcon() {
