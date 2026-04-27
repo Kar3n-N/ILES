@@ -211,3 +211,82 @@
   from { height: 0%; opacity: 0; }
   to   { height: 60%; opacity: 1; }
 }
+
+.iles-sidebar__link-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; flex-shrink: 0;
+  opacity: 0.7; transition: opacity var(--sidebar-transition);
+}
+
+.iles-sidebar__link--active .iles-sidebar__link-icon,
+.iles-sidebar__link:hover .iles-sidebar__link-icon { opacity: 1; }
+
+.iles-sidebar__link-content {
+  display: flex; flex-direction: column; gap: 1px;
+  overflow: hidden; animation: fadeInRight 0.15s ease forwards;
+}
+
+.iles-sidebar__link-label { line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.iles-sidebar__link-desc {
+  font-size: 0.68rem; color: var(--sidebar-text-muted);
+  line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  animation: descIn 0.15s ease forwards;
+}
+
+@keyframes descIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.iles-sidebar--collapsed .iles-sidebar__link { justify-content: center; padding: 9px 0; gap: 0; }
+.iles-sidebar--collapsed .iles-sidebar__link-bar { height: 40%; }
+
+
+.iles-sidebar__tooltip {
+  position: absolute;
+  left: calc(100% + 10px); top: 50%; transform: translateY(-50%);
+  background: #1a1a2e; color: #fff;
+  font-size: 0.78rem; font-weight: 500;
+  padding: 5px 10px; border-radius: 7px;
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; z-index: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: opacity 0.15s ease;
+}
+
+.iles-sidebar__tooltip::before {
+  content: "";
+  position: absolute; right: 100%; top: 50%; transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: #1a1a2e;
+}
+
+.iles-sidebar--collapsed .iles-sidebar__link:hover .iles-sidebar__tooltip { opacity: 1; }
+
+
+.iles-sidebar__progress-section {
+  padding: 12px 16px 8px;
+  border-top: 1px solid var(--sidebar-border);
+  animation: fadeInRight 0.2s ease forwards;
+}
+
+.iles-sidebar__progress-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+
+.iles-sidebar__progress-label {
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--sidebar-text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+.iles-sidebar__progress-pct { font-size: 0.78rem; font-weight: 700; }
+
+.iles-sidebar__progress-track { height: 5px; border-radius: 10px; background: var(--sidebar-border); overflow: hidden; }
+
+.iles-sidebar__progress-fill {
+  height: 100%; border-radius: 10px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
