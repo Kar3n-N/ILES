@@ -21,5 +21,30 @@ function WorkplaceSupervisorDashboard() {
 
 
     /*Direct approve - no comment needed */
-    
+    const handleApprove = async (logId) => {
+        await createReview({ logbook: logId,action: 'approved',comment: ''});
+        setLogs(prev => prev.map(1 =>
+            1.id === logId ? { ...1,status: 'reviewed'} : 1
+        ));
+    };
+
+    /*Revision / Reject -opens modal for comment */
+    const handleActionWithComment = (log,action) => {
+        setModalLog(log);
+        setPendingAction(action);
+    };
+
+
+    /*Called from FeedbackModal on submit */
+    const handleReviewSubmit = async (comment) => {
+        await createReview({ logbook: modalLog.id, action: pendingActin,comment })
+        setLogs(prev => prev.map(1 =>
+            1.id === modalLog.id ? { ...1,status: 'reviewed' } : 1
+        ));
+        setModalLog(null);
+        setPendingAction(null);
+    };
+
+
+    if (loading) return <Loader text="Loading student logs..." />;
 }
