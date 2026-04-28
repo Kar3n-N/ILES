@@ -208,7 +208,7 @@ function Sidebar() {
                 {item.icon}
                 </span>
 
-                {/* Label + description (hidden when collapsed) */}
+                
                 {!collapsed && (
                 <span className="iles-sidebar__link-content">
                     <span className="iles-sidebar__link-label">{item.label}</span>
@@ -221,7 +221,7 @@ function Sidebar() {
                 </span>
                 )}
 
-                {/* Tooltip shown when collapsed (via CSS :hover) */}
+                
                 {collapsed && (
                 <span className="iles-sidebar__tooltip" role="tooltip">
                     {item.label}
@@ -236,7 +236,7 @@ function Sidebar() {
 ))}
 </nav>
 
-{/* ── PROGRESS BAR — only for students, only when expanded ── */}
+
 {progressPercent !== null && !collapsed && (
 <div className="iles-sidebar__progress-section">
     <div className="iles-sidebar__progress-header">
@@ -256,7 +256,6 @@ function Sidebar() {
 </div>
 )}
 
-{/* ── FOOTER: SIGN OUT BUTTON ── */}
 <div className="iles-sidebar__footer">
 <button
     className="iles-sidebar__logout-btn"
