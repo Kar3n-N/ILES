@@ -14,6 +14,7 @@ async function request(endpoint, options = {}) {
     headers: getHeaders(),
     ...options,
   });
+  
 
   //Token expired - clear storage and redirect to login
   if (response.status === 401) {
