@@ -47,15 +47,96 @@ const ROLE_CONFIG = {
     badge: "ADM",
   },
 };
-// TODO: ILES-22: Add brand/ clock JSX
+
 // TODO: ILES-23: Add nav links JSX
 // TODO: ILES-24: Add user controls and dropdown JSX
 
 function Navbar() {
-  // Placeholder -- next tickets will fill this in
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [time, setTime] = useState(new Date());
+  const menuRef = useRef(null);
+
+  const roleConfig = user
+    ? (ROLE_CONFIG[user.role] ?? ROLE_CONFIG.student)
+    : null;
+  const navLinks = user ? (ROLE_NAV_LINKS[user.role] ?? []) : [];
+
+  /* Live clock — updates every 60 seconds */
+  useEffect(() => {
+    const id = setInterval(() => setTime(new Date()), 60000);
+    return () => clearInterval(id); // cleanup when component unmounts
+  }, []);
+
+  /* Shrink navbar on scroll — adds CSS class when page is scrolled */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* Close dropdown when user clicks anywhere outside the menu */
+  useEffect(() => {
+    const handler = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  function handleLogout() {
+    setMenuOpen(false);
+    logout();
+    navigate("/login");
+  }
+
+  const formattedDate = time.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
+
+  const formattedTime = time.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  const initials = user
+    ? `${user.first_name?.[0] ?? ""}${user.last_name?.[0] ?? ""}`.toUpperCase() ||
+      user.username?.slice(0, 2).toUpperCase()
+    : "??";
+
   return (
-    <header className="iles-navbar" role="banner">
-      <p style={{ padding: "16px" }}>Navbar coming soon</p>
+    <header
+      className={`iles-navbar ${scrolled ? "iles-navbar--scrolled" : ""}`}
+      role="banner"
+    >
+      {/* Skip link for keyboard / screen-reader accessibility */}
+      <a href="#main-content" className="iles-navbar__skip">
+        Skip to main content
+      </a>
+
+      {/* LEFT: Brand logo + date/time */}
+      <div className="iles-navbar__brand">
+        <Link to="/" className="iles-navbar__logo" aria-label="ILES Home">
+          <span className="iles-navbar__logo-mark">IL</span>
+          <span className="iles-navbar__logo-text">ES</span>
+        </Link>
+        <div className="iles-navbar__divider" aria-hidden="true" />
+        <div className="iles-navbar__meta">
+          <span className="iles-navbar__date">{formattedDate}</span>
+          <span className="iles-navbar__time">{formattedTime}</span>
+        </div>
+      </div>
+
+      {/* CENTRE nav links — added in ILES-104 */}
+      {/* RIGHT user controls — added in ILES-105 */}
     </header>
   );
 }
