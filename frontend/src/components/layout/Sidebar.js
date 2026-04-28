@@ -1,3 +1,173 @@
+import { useState } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import './Sidebar.css';
+
+const NAV_CONFIG = {
+  student: {
+    accentColor: "#1a365d",
+    accentLight: "#ebf4ff",
+    brandLabel: "Student Portal",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/student/dashboard", label: "Overview",   icon: <HomeIcon />,     description: "Your internship at a glance" },
+          { path: "/student/logbook",   label: "Daily Logs", icon: <LogbookIcon />,  description: "Weekly activity logs" },
+          { path: "/student/progress",  label: "Progress",   icon: <ProgressIcon />, description: "Hours & completion rate" },
+        ],
+      },
+      {
+        title: "Resources",
+        items: [
+          { path: "/student/schedule",  label: "Schedule",   icon: <CalendarIcon />, description: "Week-by-week timeline" },
+          { path: "/student/documents", label: "Documents",  icon: <DocsIcon />,     description: "Upload & manage files" },
+          { path: "/student/profile",   label: "My Profile", icon: <ProfileIcon />,  description: "Personal information" },
+        ],
+      },
+    ],
+  },
+
+  workplace_supervisor: {
+    accentColor: "#276749",
+    accentLight: "#f0fff4",
+    brandLabel: "Workplace Supervisor",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/supervisor/dashboard",  label: "Dashboard",   icon: <HomeIcon />,    description: "Review queue overview" },
+          { path: "/supervisor/students",   label: "My Students", icon: <UsersIcon />,   description: "Assigned interns" },
+          { path: "/supervisor/evaluation", label: "Evaluations", icon: <StarIcon />,    description: "Score & grade students" },
+          { path: "/supervisor/profile",    label: "My Profile",  icon: <ProfileIcon />, description: "Your information" },
+        ],
+      },
+    ],
+  },
+
+  academic_supervisor: {
+    accentColor: "#c05621",
+    accentLight: "#fff7ed",
+    brandLabel: "Academic Supervisor",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/academic/dashboard",  label: "Dashboard",   icon: <HomeIcon />,  description: "Evaluation overview" },
+          { path: "/academic/evaluation", label: "Evaluations", icon: <StarIcon />,  description: "Weighted scoring" },
+          { path: "/academic/students",   label: "Students",    icon: <UsersIcon />, description: "Assigned students" },
+        ],
+      },
+    ],
+  },
+
+  internship_admin: {
+    accentColor: "#6b46c1",
+    accentLight: "#faf5ff",
+    brandLabel: "Administration",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/admin/dashboard",  label: "Dashboard",  icon: <HomeIcon />,      description: "System overview" },
+          { path: "/admin/placements", label: "Placements", icon: <BuildingIcon />,  description: "Company placements" },
+          { path: "/admin/users",      label: "Users",      icon: <UsersIcon />,     description: "Manage all accounts" },
+          { path: "/admin/criteria",   label: "Criteria",   icon: <ClipboardIcon />, description: "Evaluation criteria" },
+        ],
+      },
+    ],
+  },
+};
+
+function Sidebar() {
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [collapsed, setCollapsed] = useState(false);
+    const [hoveredpath, setHoveredPath] = useState(nul);
+
+    const config = user ? (NAV_CONFIG[user.role] ?? NAV_CONFIG.student) : null;
+
+    if (!config) return null;
+
+    const { accentColor, accentLight, brandLabel, sections } = config;
+
+    const initials = user
+        ? `${user.first_name?.[0] ?? ""}${user.last_name?.[0] ?? ""}`.toUpperCase() ||
+            user.username?.slice(0, 2).toUpperCase()
+        : "??";
+
+    const displayName = user?.first_name
+        ? `${user.first_name} ${user.last_name ?? ""}`.trim()
+        : user?.username ?? "";
+
+    const progressPercent = user?.role === "student" ? 80 : null
+
+    function handleLogout() {
+        logout();
+        navigate("/login");
+    }
+
+    return (
+        <aside
+            className={`iles-sidebar ${collapsed ? "iles-sidebar--collapsed" : ""}`}
+            aria-label="Main navigation"
+            style={{"--sidebar-accent": accentColor, "--sidebar-accent-light": accentLight}}
+        >
+            <div className="iles-sidebar__header">
+                <div className="iles-sidebar__brand" style={{ background: accentColor }}>
+                    <div className="iles-sidebar__brand-logo">
+                        <span className="iles-sidebar__brand-il">IL</span>
+                        <span className="iles-sidebar__brand-es">ES</span>
+                    </div>
+                    {!collapsed && (
+                        <div className="iles-sidebar__brand-meta">
+                            <span className="iles-sidebar__brand-name">ILES</span>
+                            <span className="iles-sidebar__brand-label">{brandLabel}</span>
+                        </div>
+                    )}
+                </div>
+
+                <button 
+                    className="iles-sidebar__collapse-btn"
+                    onclick={() => setCollapsed((v) => !v)}
+                    aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+                    type="button"
+                >
+                    <CollapseIcon flipped={collapsed} />
+                </button>
+            </div>
+
+            <div className="iles-sidebar__user-card">
+                <div
+                    className="iles-sidebar__user-avatar"
+                    style={{ background: accentColor }}
+                    aria-hidden="true"
+                >
+                    {initials}
+                </div>
+                {!collapsed && (
+                    <div className="iles-sidebar__user-info">
+                        <p className="iles-sidebar__user-name" title={displayName}>
+                            {displayName}
+                        </p>
+                        <p className="iles-sidebar__user-role">
+                            {user?.role?.replace(/_/g, " ")}
+                        </p>
+                    </div>
+                )}
+                {!collapsed && (
+                    <div
+                        className="iles-sidebar__user-status"
+                        title="Online"
+                        aria-label="Status: online"
+                    />
+                )}
+            </div>
+        </aside>
+    );
+}
+
 function HomeIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
