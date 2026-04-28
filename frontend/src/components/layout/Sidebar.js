@@ -168,6 +168,112 @@ function Sidebar() {
     );
 }
 
+
+
+<nav className="iles-sidebar__nav" aria-label="Sidebar navigation">
+{sections.map((section, si) => (
+    <div key={si} className="iles-sidebar__section">
+
+    
+    {section.title && !collapsed && (
+        <p className="iles-sidebar__section-title">{section.title}</p>
+    )}
+
+    <ul className="iles-sidebar__menu" role="list">
+        {section.items.map((item) => {
+        
+        const isActive =
+            location.pathname === item.path ||
+            location.pathname.startsWith(item.path + "/");
+
+        return (
+            <li key={item.path}>
+            <NavLink
+                to={item.path}
+                className={({ isActive: navActive }) =>
+                `iles-sidebar__link ${navActive ? "iles-sidebar__link--active" : ""}`
+                }
+                onMouseEnter={() => setHoveredPath(item.path)}
+                onMouseLeave={() => setHoveredPath(null)}
+                title={collapsed ? item.label : undefined}
+                aria-label={item.label}
+            >
+                
+                {isActive && (
+                <span className="iles-sidebar__link-bar" aria-hidden="true" />
+                )}
+
+                {/* Icon */}
+                <span className="iles-sidebar__link-icon" aria-hidden="true">
+                {item.icon}
+                </span>
+
+                {/* Label + description (hidden when collapsed) */}
+                {!collapsed && (
+                <span className="iles-sidebar__link-content">
+                    <span className="iles-sidebar__link-label">{item.label}</span>
+                    {/* Description shown on hover of non-active links */}
+                    {hoveredPath === item.path && !isActive && (
+                    <span className="iles-sidebar__link-desc">
+                        {item.description}
+                    </span>
+                    )}
+                </span>
+                )}
+
+                {/* Tooltip shown when collapsed (via CSS :hover) */}
+                {collapsed && (
+                <span className="iles-sidebar__tooltip" role="tooltip">
+                    {item.label}
+                </span>
+                )}
+            </NavLink>
+            </li>
+        );
+        })}
+    </ul>
+    </div>
+))}
+</nav>
+
+{/* ── PROGRESS BAR — only for students, only when expanded ── */}
+{progressPercent !== null && !collapsed && (
+<div className="iles-sidebar__progress-section">
+    <div className="iles-sidebar__progress-header">
+    <span className="iles-sidebar__progress-label">Internship Progress</span>
+    <span className="iles-sidebar__progress-pct" style={{ color: accentColor }}>
+        {progressPercent}%
+    </span>
+    </div>
+    <div className="iles-sidebar__progress-track"
+    aria-label={`Internship ${progressPercent}% complete`}>
+    <div
+        className="iles-sidebar__progress-fill"
+        style={{ width: `${progressPercent}%`, background: accentColor }}
+    />
+    </div>
+    <p className="iles-sidebar__progress-sub">Week 12 of 15</p>
+</div>
+)}
+
+{/* ── FOOTER: SIGN OUT BUTTON ── */}
+<div className="iles-sidebar__footer">
+<button
+    className="iles-sidebar__logout-btn"
+    onClick={handleLogout}
+    type="button"
+    aria-label="Sign out"
+    title="Sign out"
+>
+    <LogoutIcon />
+    {!collapsed && <span>Sign Out</span>}
+</button>
+</div>
+
+      
+
+
+
 function HomeIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
