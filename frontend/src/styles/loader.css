@@ -28,7 +28,8 @@
         animatoin: shimmer 1.5s infinite;
         border-radius: var(--radius-sm);
 }
+
 @keyframes shimmer {
     0% { background-position: 200% 0;}
-    100% { background-position: -200% 0;ssss }
+    100% { background-position: -200% 0; }
 }
