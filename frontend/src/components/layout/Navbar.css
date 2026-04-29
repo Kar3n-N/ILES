@@ -390,3 +390,42 @@
     border-bottom: 1px solid var(--navbar-border);
     background: rgba(0, 0, 0, 0.015);
 }
+
+.iles-navbar__dropdown-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: var(--role-color, #1a365d);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.iles-navbar__dropdown-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navbar-text-primary);
+    line-height: 1.2;
+    margin: 0;
+}
+.iles-navbar__dropdown-email {
+    font-size: 0.75rem;
+    color: var(--navbar-text-muted);
+    line-height: 1.2;
+    margin: 2px 0 0;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.iles-navbar__dropdown-section {
+    padding: 6px;
+}
+.iles-navbar__dropdown-section + .iles-navbar__dropdown-section {
+    border-top: 1px solid var(--navbar-border);
+}
