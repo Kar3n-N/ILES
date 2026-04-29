@@ -79,6 +79,17 @@ function WorkplaceSupervisorDashboard() {
                           <div className="ws-card-body">
                             <p className="ws-log-preview">{log.activities}</p>
                           </div>
+
+                          /* Action buttons */
+                          <div className="ws-card-actions">
+                            <button className="btn-ghost"
+                              onClick={() => handleActionWithComment(log, 'revision_requested')}>
+                              🔄 Request Revision
+                            </button>
+                        
+
+                              </button>
+
             </div>
         </div>
     )
