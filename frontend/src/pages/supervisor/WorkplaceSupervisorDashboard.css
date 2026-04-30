@@ -1,0 +1,10 @@
+.ws-dashboard {
+  flex: 1;
+  background: var(--color-background);
+  overflow-y: auto;
+}
+
+
+.ws-header {
+  background: var(--color-surface);
+}
