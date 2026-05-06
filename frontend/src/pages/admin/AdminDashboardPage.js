@@ -10,6 +10,7 @@ import {
 } from "../../components/common/Primitives";
 import { I } from "../../components/common/Icons";
 import "../../components/common/Primitives.css";
+import "./AdminDashboardPage.css";
 
 const DEMO_USERNAMES = [
   "maria.reyes",
