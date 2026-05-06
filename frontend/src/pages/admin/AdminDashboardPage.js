@@ -168,6 +168,119 @@ function AdminDashboardPage() {
           </>
         }
       />
+
+      <div className="grid grid--4">
+        <Stat
+          label="Total users"
+          value={
+            stats ? stats.totalUsers.toLocaleString() : String(users.length)
+          }
+          delta={stats ? "+38 this month" : undefined}
+        />
+        <Stat
+          label="Active interns"
+          value={stats ? String(stats.activeInterns) : "—"}
+        />
+        <Stat
+          label="Supervisors"
+          value={stats ? String(stats.supervisors) : "—"}
+        />
+        <Stat
+          label="Open issues"
+          value={stats ? String(stats.openIssues) : "—"}
+          delta={stats?.openIssues > 0 ? "action needed" : undefined}
+          deltaDown={stats?.openIssues > 0}
+        />
+      </div>
+
+      <div className="grid grid--main-narrow">
+        <div className="col">
+          <Card label="User management" padless>
+            <div
+              style={{
+                padding: "12px 16px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                borderBottom: "1px solid var(--color-border)",
+                gap: 12,
+              }}
+            >
+              <div className="row row--wrap" style={{ gap: 6 }}>
+                {ROLE_FILTERS.map((f) => (
+                  <Chip
+                    key={f}
+                    kind={filter === f ? "accent" : ""}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setFilter(f)}
+                  >
+                    {f}
+                    {f === "All" ? ` · ${users.length}` : ""}
+                  </Chip>
+                ))}
+              </div>
+              <div style={{ width: 200 }}>
+                <input
+                  className="field"
+                  type="text"
+                  placeholder="Search users…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "6px 10px",
+                    border: "1px solid var(--color-border)",
+                    borderRadius: 6,
+                    fontSize: 13,
+                    outline: "none",
+                  }}
+                />
+              </div>
+            </div>
+            {filteredUsers.length === 0 ? (
+              <div className="empty-state">No users match this filter.</div>
+            ) : (
+              <table className="tbl">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Cohort / Org</th>
+                    <th>Status</th>
+                    <th>Last seen</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredUsers.map((u) => (
+                    <tr key={u.id}>
+                      <td>
+                        <div className="row row--center" style={{ gap: 8 }}>
+                          <Av name={u.name} />
+                          <b style={{ fontSize: 13 }}>{u.name}</b>
+                        </div>
+                      </td>
+                      <td className="muted">{u.role}</td>
+                      <td className="muted">{u.org}</td>
+                      <td>
+                        <Chip kind={u.status === "Active" ? "ok" : "warn"} dot>
+                          {u.status}
+                        </Chip>
+                      </td>
+                      <td className="muted">{u.seen}</td>
+                      <td style={{ textAlign: "right" }}>
+                        <Btn sm kind="ghost" icon>
+                          {I.dots}
+                        </Btn>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
