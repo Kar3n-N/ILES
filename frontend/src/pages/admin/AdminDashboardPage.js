@@ -106,6 +106,51 @@ function AdminDashboardPage() {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
 
+  useEffect(() => {
+    if (isDemo) return;
+    Promise.all([
+      fetch("/api/admin/users/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("iles_auth_token")}`,
+        },
+      }).then((r) => (r.ok ? r.json() : [])),
+      fetch("/api/admin/cohorts/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("iles_auth_token")}`,
+        },
+      }).then((r) => (r.ok ? r.json() : [])),
+      fetch("/api/admin/audit/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("iles_auth_token")}`,
+        },
+      }).then((r) => (r.ok ? r.json() : [])),
+      fetch("/api/admin/stats/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("iles_auth_token")}`,
+        },
+      }).then((r) => (r.ok ? r.json() : null)),
+    ])
+      .then(([userData, cohortData, auditData, statsData]) => {
+        setUsers(userData || []);
+        setCohorts(cohortData || []);
+        setAudit(auditData || []);
+        setStats(statsData);
+      })
+      .catch(() => {});
+  }, [isDemo]);
+
+  const filteredUsers = users
+    .filter((u) => {
+      if (filter === "All") return true;
+      return (ROLE_MAP[filter] || []).some((r) => u.role.includes(r));
+    })
+    .filter(
+      (u) =>
+        search.trim() === "" ||
+        u.name.toLowerCase().includes(search.toLowerCase()) ||
+        u.role.toLowerCase().includes(search.toLowerCase()),
+    );
+
   return <h1> ADMIN DASHBOARD PAGE</h1>;
 }
 
