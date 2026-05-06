@@ -279,6 +279,129 @@ function AdminDashboardPage() {
               </table>
             )}
           </Card>
+          <Card label="Pairings · students ↔ supervisors">
+            <div className="muted" style={{ fontSize: 13, marginBottom: 12 }}>
+              Assign students to academic and workplace supervisors by cohort
+              and company.
+            </div>
+            <div
+              style={{
+                height: 160,
+                border: "2px dashed var(--color-border)",
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span className="muted" style={{ fontSize: 13 }}>
+                Pairing UI — 2-column matcher coming soon
+              </span>
+            </div>
+            <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+              <Btn sm>Auto-assign by company</Btn>
+              <Btn sm kind="ghost">
+                {I.upload} Bulk import CSV
+              </Btn>
+            </div>
+          </Card>
+        </div>
+
+        <div className="col">
+          <Card label="System analytics">
+            <div
+              style={{
+                height: 140,
+                background: "var(--color-bg)",
+                border: "2px dashed var(--color-border)",
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span className="muted" style={{ fontSize: 13 }}>
+                Line chart · daily active users · 30 days
+              </span>
+            </div>
+            <div className="row" style={{ marginTop: 14, gap: 24 }}>
+              <div>
+                <div className="tiny">Logbook submissions / wk</div>
+                <div style={{ fontSize: 24, fontWeight: 700 }}>286</div>
+              </div>
+              <div>
+                <div className="tiny">Avg approval time</div>
+                <div style={{ fontSize: 24, fontWeight: 700 }}>18h</div>
+              </div>
+            </div>
+          </Card>
+
+          <Card label="Cohorts & programs">
+            {cohorts.length === 0 ? (
+              <div className="empty-state">No cohorts configured.</div>
+            ) : (
+              <>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                  {cohorts.map((c, i) => (
+                    <li
+                      key={i}
+                      className="row row--between row--center"
+                      style={{
+                        padding: "12px 0",
+                        borderBottom:
+                          i < cohorts.length - 1
+                            ? "1px solid var(--color-border)"
+                            : "none",
+                      }}
+                    >
+                      <div>
+                        <b style={{ fontSize: 13 }}>{c.name}</b>
+                        <div className="muted" style={{ fontSize: 12 }}>
+                          {c.count}
+                        </div>
+                      </div>
+                      <Chip
+                        kind={c.status === "Active" ? "ok" : ""}
+                        dot={c.status === "Active"}
+                      >
+                        {c.status}
+                      </Chip>
+                    </li>
+                  ))}
+                </ul>
+                <Btn sm style={{ marginTop: 12 }}>
+                  {I.plus} New cohort
+                </Btn>
+              </>
+            )}
+          </Card>
+
+          <Card kind="ghost" label="Audit log">
+            {audit.length === 0 ? (
+              <div className="empty-state">No recent activity.</div>
+            ) : (
+              <>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    margin: 0,
+                    padding: 0,
+                    fontSize: 13,
+                  }}
+                >
+                  {audit.map((entry, i) => (
+                    <li key={i} style={{ padding: "6px 0" }}>
+                      <b>{entry.who}</b> {entry.what}{" "}
+                      <span className="muted">· {entry.when}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Btn sm kind="ghost" style={{ marginTop: 8 }}>
+                  Open full audit log {I.arrow}
+                </Btn>
+              </>
+            )}
+          </Card>
         </div>
       </div>
     </div>
