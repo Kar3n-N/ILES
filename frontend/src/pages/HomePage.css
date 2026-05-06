@@ -7,7 +7,6 @@
 }
 .home-page[data-theme="dark"] { background: #0f172a; color: #f1f5f9; }
 
-/* Navbar */
 .home-nav {
 
   position: sticky; top: 0; z-index: 30;
