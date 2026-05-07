@@ -18,3 +18,12 @@ function Toggle ({ on }) {
         </div>
     )
 }
+
+export default function ProfilePage() {
+  return (
+    <PageShell role="student">
+      <PageHead
+        crumb="Account · Profile"
+        title="Your profile"
+        actions={<><Btn sm kind="ghost">Cancel</Btn><Btn sm kind="primary">Save changes</Btn></>}
+      />
