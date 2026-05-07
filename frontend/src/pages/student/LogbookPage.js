@@ -44,6 +44,53 @@ function LogbookPage() {
         </>
       }
     />
+
+    <div className="grid grid--side-list">
+      <Card padless style={{ overflow: "hidden" }}>
+        <div
+          style={{
+            padding: "14px 16px",
+            borderBottom: "1px solid var(--color-border)",
+          }}
+        >
+          <span className="tiny">Weeks</span>
+        </div>
+        <ul style={{ listStyle: "none", margin: 0, padding: 6 }}>
+          {WEEKS.map((it) => (
+            <li
+              key={it.w}
+              style={{
+                padding: "10px 12px",
+                margin: 2,
+                borderRadius: 8,
+                background: it.active ? "var(--primary-soft)" : "transparent",
+                cursor: "pointer",
+                border: it.active
+                  ? "1px solid rgba(26,54,93,0.2)"
+                  : "1px solid transparent",
+              }}
+            >
+              <div className="row row--between row--center">
+                <b
+                  style={{
+                    fontSize: 14,
+                    color: it.active
+                      ? "var(--color-primary)"
+                      : "var(--color-text)",
+                  }}
+                >
+                  Week {it.w}
+                </b>
+                <Chip kind={it.kind}>{it.status}</Chip>
+              </div>
+              <div className="muted" style={{ fontSize: 12, marginTop: 2 }}>
+                {it.date}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    </div>
   </PageShell>;
 }
 
