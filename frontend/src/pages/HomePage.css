@@ -184,6 +184,12 @@ home-cta__btn--white { background: #fff; color: #1a365d; }
   width: 24px; height: 24px; border-radius: 4px;
   background: #1a365d; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
+.home-footer__text { font-size: 0.75rem; color: var(--color-text-muted); }
+.home-footer__links { display: flex; align-items: center; gap: 16px; }
+.home-footer__link { font-size: 0.75rem; color: var(--color-text-muted); text-decoration: none; transition: color 0.15s; }
+.home-footer__link:hover { color: var(--color-text); }
+.home-page[data-theme="dark"] .home-footer__link:hover { color: #f1f5f9; }
+.home-footer__built { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: var(--color-text-muted); }
 
 
 
