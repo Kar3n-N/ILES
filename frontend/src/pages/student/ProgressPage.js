@@ -74,3 +74,17 @@ export default function ProgressPage() {
               <li><b>Final evaluation & grade</b><div className="meta">19 Aug</div></li>
             </ul>
           </Card>
+
+          <Card label="Evaluation snapshot">
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div className="row row--between row--center"><span className="muted">Workplace (interim)</span><b style={{ color: "var(--color-green)" }}>4.3 / 5</b></div>
+              <div className="row row--between row--center"><span className="muted">Academic (interim)</span><span className="muted">pending</span></div>
+              <div className="row row--between row--center"><span className="muted">Logbook average</span><b>4.2 / 5</b></div>
+            </div>
+            <div style={{ marginTop: 12 }}><Btn sm>See full evaluations {I.arrow}</Btn></div>
+          </Card>
+        </div>
+      </div>
+    </PageShell>
+  );
+}
