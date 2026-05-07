@@ -62,3 +62,15 @@ export default function ProgressPage() {
             </div>
           </Card>
         </div>
+
+        <div className="col">
+          <Card label="Milestones">
+            <ul className="timeline">
+              <li className="is-done"><b>Placement approved</b><div className="meta">Mar 20</div></li>
+              <li className="is-done"><b>Week 1 logbook submitted</b><div className="meta">Mar 27</div></li>
+              <li className="is-done"><b>First workplace visit</b><div className="meta">Apr 14</div></li>
+              <li className="is-warn"><b>Midterm evaluation</b><div className="meta">due in 5 days</div></li>
+              <li><b>Final report</b><div className="meta">12 Aug</div></li>
+              <li><b>Final evaluation & grade</b><div className="meta">19 Aug</div></li>
+            </ul>
+          </Card>
