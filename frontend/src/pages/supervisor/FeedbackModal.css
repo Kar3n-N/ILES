@@ -54,3 +54,4 @@
     color: var(--color-text); font-size: 0.9rem; resize: none;
     transition: border 0.15s ease;
 }
+.modal-body textarea:focus {outline: none; border-color: #1a365d; }
