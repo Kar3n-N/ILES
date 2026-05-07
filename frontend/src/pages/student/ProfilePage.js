@@ -52,3 +52,15 @@ export default function ProfilePage() {
             </ul>
           </Card>
         </div>
+
+        <div className="col">
+          <Card label="Personal info">
+            <div className="grid grid--2">
+              <Field label="First name" placeholder="Karen" />
+              <Field label="Last name" placeholder="Kawooya" />
+              <Field label="Phone" placeholder="+256 7__ ___ ___" />
+              <Field label="Date of birth" placeholder="2003-04-12" />
+              <Field label="Address" placeholder="Kampala, Uganda" />
+              <Field label="Emergency contact" placeholder="Name + phone" />
+            </div>
+          </Card>
