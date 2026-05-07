@@ -60,3 +60,19 @@ export default function OnboardingPage() {
             <Field label="Brief description of duties" kind="ta"><Lines count={3} /></Field>
           </div>
         </Card>
+
+        <Card label="Required documents">
+          <div className="col" style={{ gap: 12 }}>
+            <Field label="Acceptance / offer letter" kind="file" hint="Signed PDF · max 10MB">
+              <span style={{ color: "var(--color-primary)", fontWeight: 600 }}>{I.upload} Upload acceptance letter</span>
+              <span className="muted" style={{ fontSize: 12 }}>or drag and drop</span>
+            </Field>
+            <Field label="Insurance / liability cover" kind="file">
+              <span style={{ color: "var(--color-primary)", fontWeight: 600 }}>{I.upload} Upload insurance</span>
+            </Field>
+            <Field label="Updated CV" kind="file">
+              <span style={{ color: "var(--color-primary)", fontWeight: 600 }}>{I.upload} Upload CV</span>
+            </Field>
+          </div>
+        </Card>
+      </div>
