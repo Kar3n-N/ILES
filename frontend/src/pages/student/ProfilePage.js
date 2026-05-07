@@ -94,3 +94,22 @@ export default function ProfilePage() {
               <Btn sm kind="ghost">{I.shield} Enable 2-factor auth</Btn>
             </div>
           </Card>
+
+          <Card label="Notifications">
+            {[
+              ["Email me when an entry is approved", true],
+              ["Email me 24h before a deadline", true],
+              ["Email me when supervisor leaves a comment", true],
+              ["Weekly progress digest", false],
+            ].map(([s, on]) => (
+              <div key={s} className="row row--between row--center" style={{ padding: "10px 0", borderBottom: "1px solid var(--color-border)" }}>
+                <span style={{ fontSize: 14 }}>{s}</span>
+                <Toggle on={on} />
+              </div>
+            ))}
+          </Card>
+        </div>
+      </div>
+    </PageShell>
+  );
+}
