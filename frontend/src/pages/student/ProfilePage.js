@@ -73,3 +73,13 @@ export default function ProfilePage() {
               <Field label="Cohort" placeholder="2026 · Semester 2" />
             </div>
           </Card>
+
+          <Card label="Placement">
+            <div className="row row--between row--center">
+              <div>
+                <b style={{ fontSize: 14 }}>Acme Telecoms Ltd.</b>
+                <div className="muted" style={{ fontSize: 12 }}>12 May — 12 Aug 2026 · 12 weeks</div>
+              </div>
+              <Btn sm kind="ghost">Request change</Btn>
+            </div>
+          </Card>
