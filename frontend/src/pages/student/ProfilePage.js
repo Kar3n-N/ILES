@@ -41,3 +41,14 @@ export default function ProfilePage() {
               <div className="row" style={{ gap: 6 }}>
                 <Chip kind="accent">Student</Chip>
                 <Chip kind="ok" dot>Active</Chip>
+              </div>
+            </div>
+          </Card>
+          <Card kind="ghost" label="On this page">
+            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+              {["Personal info", "Academic info", "Placement", "Account & security", "Notifications"].map(s => (
+                <li key={s} style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)", fontSize: 13, color: "var(--color-text-muted)" }}>{s}</li>
+              ))}
+            </ul>
+          </Card>
+        </div>
