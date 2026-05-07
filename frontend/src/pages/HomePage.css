@@ -92,5 +92,21 @@ home-hero {
 .home-hero__btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
 .home-hero__btn--ghost:hover { background: rgba(255,255,255,0.1); }
 
+home-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; padding: 40px 32px;
+  border-bottom: 1px solid var(--color-border);
+  background: #fff; max-width: 900px; margin: 0 auto; width: 100%;
+}
+@media (min-width: 768px) { .home-stats { grid-template-columns: repeat(4, 1fr); } }
+.home-page[data-theme="dark"] .home-stats { background: #0f172a; border-bottom-color: #1e293b; }
+.home-stats__item { text-align: center; }
+.home-stats__value-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px; }
+.home-stats__value { font-size: 1.7rem; font-weight: 700; color: #1a365d; }
+.home-page[data-theme="dark"] .home-stats__value { color: #90cdf4; }
+.home-stats__label { font-size: 0.78rem; color: var(--color-text-muted); }
+
+
 
 
