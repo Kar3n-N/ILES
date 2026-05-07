@@ -89,6 +89,12 @@ home-hero {
   margin-bottom: 24px;
 }
 
+.home-hero__badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #68d391;
+  animation: pulse-dot 2s infinite;
+}
+
 
 
 
