@@ -64,3 +64,4 @@
     color: white; font-size: 0.875rem; font-weight: 600; cursor: pointer;
     transition: opacity 0.15s ease;
 }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
