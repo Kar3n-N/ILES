@@ -22,3 +22,16 @@ export default function OnboardingPage() {
           </div>
         </div>
       </Card>
+
+      <div className="grid grid--2">
+        <Card label="Company / Organization">
+          <div className="col" style={{ gap: 12 }}>
+            <Field label="Company name" placeholder="e.g. Acme Telecoms Ltd." />
+            <Field label="Industry / sector" placeholder="ICT · Finance · Health · Education" />
+            <Field label="Office address" placeholder="Plot 42, Kampala Road" />
+            <div className="row" style={{ gap: 12 }}>
+              <Field label="Country" placeholder="Uganda ▾" />
+              <Field label="City" placeholder="Kampala" />
+            </div>
+          </div>
+        </Card>
