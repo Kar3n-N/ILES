@@ -28,7 +28,7 @@
     padding: 1.25rem 1.5rem 1rem;
     position: relative;
 }
-.modal-header h3 { font-size: 1rem; font-weight: 700; var(--color-text);  }
+.modal-header h3 { font-size: 1rem; font-weight: 700;  var(--color-text);  }
 .modal-header p  { font-size:0.82rem; color: var(--color-text-muted); margin-top: 0.2rem; }
 
 
