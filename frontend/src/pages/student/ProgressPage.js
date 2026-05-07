@@ -48,3 +48,17 @@ export default function ProgressPage() {
           <Card label="Hours per week">
             <Placeholder label="bar chart · weeks 1–12 · target 40 h/week" h={200} />
           </Card>
+
+          <Card label="Skills & competencies">
+            <div className="muted" style={{ fontSize: 13, marginBottom: 12 }}>Auto-tagged from your weekly logbook entries.</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {SKILLS.map(([name, pct]) => (
+                <div key={name} className="row row--center" style={{ gap: 12 }}>
+                  <div style={{ flex: 1, fontSize: 14, fontWeight: 500 }}>{name}</div>
+                  <div style={{ width: 240 }}><Bar pct={pct} /></div>
+                  <div className="muted" style={{ width: 40, textAlign: "right", fontSize: 12, fontWeight: 600 }}>{pct}%</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
