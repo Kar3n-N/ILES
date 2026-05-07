@@ -11,3 +11,13 @@ const SKILLS = [
     ["Testing", 35],
     ["DevOps /Docker", 48],
 ];
+
+export default function ProgressPage() {
+  return (
+    <PageShell role="student">
+      <PageHead
+        crumb="Workspace · Progress"
+        title="Your internship progress"
+        sub="Tracks how far you've come and what's still ahead."
+        actions={<Btn sm kind="ghost">Export report</Btn>}
+      />
