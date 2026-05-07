@@ -28,7 +28,23 @@ const WEEKS = [
 ];
 
 function LogbookPage() {
-  return <h1> LOGBOOK PAGE</h1>;
+  <PageShell role="student">
+    <PageHead
+      crumb="Workspace · Logbook"
+      title="Weekly logbook"
+      sub="Each week, summarize what you did, learned, and need help with. Your supervisor signs off on every entry."
+      actions={
+        <>
+          <Btn sm kind="ghost">
+            Export PDF
+          </Btn>
+          <Btn sm kind="primary">
+            {I.plus} New week
+          </Btn>
+        </>
+      }
+    />
+  </PageShell>;
 }
 
 export default LogbookPage;
