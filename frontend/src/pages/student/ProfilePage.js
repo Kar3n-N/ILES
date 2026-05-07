@@ -83,3 +83,14 @@ export default function ProfilePage() {
               <Btn sm kind="ghost">Request change</Btn>
             </div>
           </Card>
+
+          <Card label="Account & security">
+            <div className="grid grid--2">
+              <Field label="Email" placeholder="karen.k@university.ac.ug" />
+              <Field label="Password"><span>••••••••••</span></Field>
+            </div>
+            <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+              <Btn sm>Change password</Btn>
+              <Btn sm kind="ghost">{I.shield} Enable 2-factor auth</Btn>
+            </div>
+          </Card>
