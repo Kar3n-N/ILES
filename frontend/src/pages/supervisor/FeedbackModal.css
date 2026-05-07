@@ -49,5 +49,8 @@
 }
 .modal-body label { font-size: 0.85rem; font-weight: 600; color: var(--color-text); }
 .modal-body textarea {
-    
+    width: 100%; padding: 0.75rem; border-radius: var(--radius-md);
+    border: 1px solid var(--color-border); background: var(--color-input-bg);
+    color: var(--color-text); font-size: 0.9rem; resize: none;
+    transition: border 0.15s ease;
 }
