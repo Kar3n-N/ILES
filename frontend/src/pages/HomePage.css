@@ -81,42 +81,16 @@ home-hero {
   font-size: 0.78rem; color: rgba(255,255,255,0.9);
   margin-bottom: 24px;
 }
-.home-hero__badge {
-    display: inline-flex;align-items: center; gap: 8px;
-  padding: 6px 14px; border-radius: 999px;
-  background: rgba(255,255,255,0.15);
-  font-size: 0.78rem; color: rgba(255,255,255,0.9);
-  margin-bottom: 24px;
-}
 
 .home-hero__badge-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: #68d391;
   animation: pulse-dot 2s infinite;
 }
-@keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-
-.home-hero__title {
-  font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
-  color: #fff; line-height: 1.2; margin-bottom: 20@keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-
-.home-hero__title {
-  font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
-  color: #fff; line-height: 1.2; margin-bottom: 20px;
-}
-.home-hero__title-accent { color: #90cdf4; }
-.home-hero__desc { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.8; max-width: 480px; margin-bottom: 40px; }
-.home-hero__cta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.home-hero__btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 24px; font-size: 0.875rem; font-weight: 600;
-  border-radius: var(--radius-md); text-decoration: none;
-  transition: opacity 0.15s, background 0.15s;
-}
-
-
-
-
+.home-hero__btn--white { background: #fff; color: #1a365d; }
+.home-hero__btn--white:hover { background: #f0f4f8; }
+.home-hero__btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.home-hero__btn--ghost:hover { background: rgba(255,255,255,0.1); }
 
 
 
