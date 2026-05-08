@@ -44,7 +44,7 @@ const HOW_IT_WORKS = [
   {
     step: "04",
     title: "Final Evaluation",
-    color: "#6b46c1",
+    color: "#4a46c1",
     desc: "Students receive a final weighted score based on performance, communication, and initiative.",
   },
 ];
