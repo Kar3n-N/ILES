@@ -1,7 +1,8 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "../context/ThemeContext";
+
 
 import {
   GraduationCap,
@@ -121,6 +122,10 @@ function getDashboardPath(role) {
 export default function HomePage() {
   const { user } = useContext(AuthContext);
   const { isDark, toggleTheme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+  if (user) navigate(getDashboardPath(user.role), { replace: true });
+  }, [user, navigate]);
 
   return (
     <div className="home-page" data-theme={isDark ? "dark" : "light"}>
