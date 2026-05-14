@@ -15,7 +15,6 @@ from datetime import timedelta
 from pathlib import Path
 
 import dj_database_url
-from django.db.models import constraints_all
 from dotenv import load_dotenv
 
 load_dotenv()  # load local variables from .env file
@@ -38,6 +37,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     ".onrender.com",
     "api.iles.projecthive.cfd",
+    "iles-backend.projecthive.cfd",
 ]
 
 
