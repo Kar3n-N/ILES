@@ -30,6 +30,12 @@ const NAV_CONFIG = {
             icon: <ProgressIcon />,
             description: "Hours & completion rate",
           },
+          {
+            path: "/student/evaluations",
+            label: "Evaluations",
+            icon: <StarIcon />,
+            description: "Scores from supervisors",
+          },
         ],
       },
       {
