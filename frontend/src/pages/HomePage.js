@@ -125,9 +125,9 @@ export default function HomePage() {
   const { user } = useContext(AuthContext);
   const { isDark, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
-useEffect(() => {
+  useEffect(() => {
   if (user) navigate(getDashboardPath(user.role), { replace: true });
-}, [user, navigate]);
+  }, [user, navigate]);
 
   return (
     <div className="home-page" data-theme={isDark ? "dark" : "light"}>
