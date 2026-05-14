@@ -120,7 +120,7 @@ function getDashboardPath(role) {
 
 export default function HomePage() {
   const { user } = useContext(AuthContext);
-  const { isDark, toggleDark } = useContext(ThemeContext);
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className="home-page" data-theme={isDark ? "dark" : "light"}>
@@ -135,7 +135,7 @@ export default function HomePage() {
 
         <div className="home-nav__actions">
           <button
-            onClick={toggleDark}
+            onClick={toggleTheme}
             className="home-nav__theme-btn"
             aria-label="Toggle dark mode"
           >
