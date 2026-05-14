@@ -66,7 +66,30 @@ function DocRow({ name, type, date, sharedWith, status }) {
 }
 
 function DocumentsPage() {
-  return <div className="page" />;
+  return (
+    <div className="page">
+      <PageHead
+        crumb="Account · Documents"
+        title="Documents"
+        sub="Everything related to your placement, in one place."
+        actions={
+          <>
+            <Btn sm kind="ghost">New folder</Btn>
+            <Btn sm kind="primary">{I.upload} Upload</Btn>
+          </>
+        }
+      />
+
+      <div className="row row--wrap" style={{ gap: 8 }}>
+        <Chip kind="accent">All · 12</Chip>
+        <Chip>Placement · 3</Chip>
+        <Chip>Reports · 2</Chip>
+        <Chip>Evaluations · 1</Chip>
+        <Chip>Templates · 4</Chip>
+        <Chip>Other · 2</Chip>
+      </div>
+    </div>
+  );
 }
 
 export default DocumentsPage;
