@@ -185,3 +185,17 @@ export default function RegisterPage() {
                   <input className="reg-input" value={form.lastName} onChange={(e) => update("lastName", e.target.value)} placeholder="Doe" required />
                 </div>
               </div>
+              <div className="reg-group">
+                <label className="reg-label">Username</label>
+                <div className="reg-input-wrap">
+                  <User size={14} className="reg-input-icon" />
+                  <input className="reg-input reg-input--icon" value={form.username} onChange={(e) => update("username", e.target.value)} placeholder="john.doe" required />
+                </div>
+              </div>
+              <div className="reg-group">
+                <label className="reg-label">Email Address</label>
+                <div className="reg-input-wrap">
+                  <Mail size={14} className="reg-input-icon" />
+                  <input type="email" className="reg-input reg-input--icon" value={form.email} onChange={(e) => update("email", e.target.value)} placeholder="j.doe@student.mak.ac.ug" required />
+                </div>
+              </div>
