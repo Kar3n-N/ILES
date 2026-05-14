@@ -1,11 +1,10 @@
 import React from 'react';
-import PageShell from '../components/PageShell/PageShell';
-import { PageHead, Card, Btn, Chip, Field, Lines } from '../components/common/Primitives';
+import { PageHead, Card, Btn, Field, Lines } from '../components/common/Primitives';
 import { I } from '../components/common/Icons';
 
 export default function OnboardingPage() {
   return (
-    <PageShell role="student">
+    <div className="page">
       <PageHead
         crumb="Onboarding · Step 1 of 3"
         title="Set up your internship placement"
@@ -84,6 +83,6 @@ export default function OnboardingPage() {
           <li>Your dashboard, logbook, and evaluations unlock automatically.</li>
         </ol>
       </Card>
-    </PageShell>
+    </div>
   );
 }
