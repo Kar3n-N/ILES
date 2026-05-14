@@ -37,9 +37,9 @@
     cursor: pointer;
 }
 .filter-row .chip.active {
-    background: #f1f5f9;
-    border-color: #0f172a;
-    color: #0f172a;
+    background: var(--primary-soft);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 /* Search input inside the filter row */
@@ -63,7 +63,7 @@
 .audit-entry {
     padding: 8px 0;
     font-size: 13px;
-    border-bottom: 1px solid var(--color-border-light, #f3f4f6);
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -79,7 +79,7 @@
 /* Placeholder chart area */
 .chart-placeholder {
     height: 140px;
-    background: var(--color-background, #f7fafc);
+    background: var(--color-background);
     border: 2px dashed var(--color-border);
     border-radius: 8px;
     display: flex;
