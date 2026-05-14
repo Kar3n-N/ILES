@@ -268,6 +268,20 @@ export default function RegisterPage() {
                   </div>
                 </div>
               )}
+              <p className="reg-hint">By registering, you agree to use ILES for legitimate academic internship purposes only.</p>
+              <div className="reg-actions">
+                <button type="button" className="reg-btn reg-btn--outline" onClick={() => setStep(2)}>Back</button>
+                <button type="submit" className="reg-btn reg-btn--primary" disabled={loading}>
+                  {loading ? "Creating..." : "Create Account"}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 
               
