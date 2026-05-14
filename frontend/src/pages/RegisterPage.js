@@ -232,6 +232,17 @@ export default function RegisterPage() {
               </div>
             </form>
           )}
+          {step === 3 && (
+            <form onSubmit={handleSubmit}>
+              <h1 className="reg-step__title">Academic Details</h1>
+              <p className="reg-step__sub">Help us set up your ILES profile.</p>
+              <div className="reg-group">
+                <label className="reg-label">University / Institution</label>
+                <div className="reg-input-wrap">
+                  <Building2 size={14} className="reg-input-icon" />
+                  <input className="reg-input reg-input--icon" value={form.university} onChange={(e) => update("university", e.target.value)} placeholder="Makerere University" />
+                </div>
+              </div>
 
 
               
