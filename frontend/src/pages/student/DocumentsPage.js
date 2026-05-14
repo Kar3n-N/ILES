@@ -88,6 +88,41 @@ function DocumentsPage() {
         <Chip>Templates · 4</Chip>
         <Chip>Other · 2</Chip>
       </div>
+
+      <Card kind="ghost">
+        <Field kind="file" hint="PDF · DOCX · PNG · JPG · max 10MB per file">
+          <span style={{ color: "var(--color-primary)", fontWeight: 600 }}>
+            {I.upload} Drop files here, or click to browse
+          </span>
+        </Field>
+      </Card>
+
+      <Card kind="warn">
+        <div className="row row--between row--center">
+          <div className="row row--center" style={{ gap: 12 }}>
+            <span
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: "#fff",
+                display: "grid",
+                placeItems: "center",
+                color: "var(--color-orange)",
+              }}
+            >
+              {I.alert}
+            </span>
+            <div>
+              <div style={{ fontWeight: 600 }}>Insurance / liability cover is missing</div>
+              <div className="muted" style={{ fontSize: 12 }}>
+                Required by your academic supervisor before week 8.
+              </div>
+            </div>
+          </div>
+          <Btn sm kind="primary">{I.upload} Upload now</Btn>
+        </div>
+      </Card>
     </div>
   );
 }
