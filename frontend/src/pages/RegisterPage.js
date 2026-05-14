@@ -157,3 +157,16 @@ export default function RegisterPage() {
                     </div>
                     <p className="reg-role__label">{r.label}</p>
                     <p className="reg-role__desc">{r.desc}</p>
+                    {role === r.value && (
+                      <div className="reg-role__check" style={{ color: r.color }}>
+                        <CheckCircle2 size={12} /> Selected
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <button className="reg-btn reg-btn--primary" onClick={handleNext}>
+                Continue <ChevronRight size={15} />
+              </button>
+            </div>
+          )}
