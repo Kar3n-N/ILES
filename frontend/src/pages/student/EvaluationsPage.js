@@ -29,7 +29,7 @@ function Crit({ label, weight, score }) {
         <span className="eval-crit__label">{label}</span>
         <span className="eval-crit__score">{score}/{weight}</span>
       </div>
-      <Bar value={pct} />
+      <Bar pct={pct} />
     </div>
   );
 }
@@ -44,7 +44,7 @@ function EvalCard({ title, total, max, criteria }) {
         </span>
         <Chip kind={pct >= 70 ? "ok" : pct >= 50 ? "warn" : "err"}>{pct}%</Chip>
       </div>
-      <Bar value={pct} />
+      <Bar pct={pct} />
       <div className="eval-card__criteria">
         {criteria.map((c) => <Crit key={c.label} {...c} />)}
       </div>
