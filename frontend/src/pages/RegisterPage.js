@@ -101,3 +101,13 @@ export default function RegisterPage() {
             Join ILES to start tracking, reviewing, or managing internships with a
             role-based dashboard tailored for you.
           </p>
+           <div className="reg-panel__steps">
+            {STEPS.map((s) => (
+              <div key={s.n} className="reg-panel__step">
+                <div
+                  className="reg-panel__step-dot"
+                  style={{
+                    backgroundColor: step > s.n ? "#276749" : step === s.n ? "#fff" : "rgba(255,255,255,0.1)",
+                    color: step === s.n ? "#1a365d" : "#fff",
+                  }}
+                >
