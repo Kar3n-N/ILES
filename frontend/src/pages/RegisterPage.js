@@ -199,3 +199,21 @@ export default function RegisterPage() {
                   <input type="email" className="reg-input reg-input--icon" value={form.email} onChange={(e) => update("email", e.target.value)} placeholder="j.doe@student.mak.ac.ug" required />
                 </div>
               </div>
+              <div className="reg-group">
+                <label className="reg-label">Phone</label>
+                <div className="reg-input-wrap">
+                  <Phone size={14} className="reg-input-icon" />
+                  <input type="tel" className="reg-input reg-input--icon" value={form.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+256 700 000000" />
+                </div>
+              </div>
+              <div className="reg-row">
+                <div className="reg-group">
+                  <label className="reg-label">Password</label>
+                  <div className="reg-input-wrap">
+                    <Lock size={14} className="reg-input-icon" />
+                    <input type={showPass ? "text" : "password"} className="reg-input reg-input--icon reg-input--pr" value={form.password} onChange={(e) => update("password", e.target.value)} placeholder="••••••••" required />
+                    <button type="button" className="reg-eye" onClick={() => setShowPass((v) => !v)}>
+                      {showPass ? <EyeOff size={14} /> : <Eye size={14} />}
+              
+
+            
