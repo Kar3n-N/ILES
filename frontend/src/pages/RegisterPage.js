@@ -59,3 +59,10 @@ export default function RegisterPage() {
     if (form.password !== form.confirmPassword) { setError("Passwords do not match."); return; }
     setError(""); setStep(3);
   }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(""); setLoading(true);
+    await new Promise((r) => setTimeout(r, 1200));
+    setLoading(false); setDone(true);
+  }
