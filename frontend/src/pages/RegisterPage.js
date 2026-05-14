@@ -259,6 +259,15 @@ export default function RegisterPage() {
                   </div>
                 </div>
               </div>
+              {selectedRole && (
+                <div className="reg-role-confirm" style={{ backgroundColor: selectedRole.color + "10", borderColor: selectedRole.color + "30" }}>
+                  <selectedRole.icon size={16} color={selectedRole.color} />
+                  <div>
+                    <p className="reg-role-confirm__label">Registering as: {selectedRole.label}</p>
+                    <p className="reg-role-confirm__desc">{selectedRole.desc}</p>
+                  </div>
+                </div>
+              )}
 
 
               
