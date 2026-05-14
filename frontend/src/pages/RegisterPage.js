@@ -14,3 +14,9 @@ const ROLES = [
   { value: "academic_supervisor",  label: "Academic Supervisor",      icon: BookOpen,        desc: "Evaluate and grade students academically",        color: "#c05621" },
   { value: "internship_admin",     label: "Internship Administrator", icon: LayoutDashboard, desc: "Manage placements, users & system data",          color: "#6b46c1" },
 ];
+
+const STEPS = [
+  { n: 1, label: "Choose your role" },
+  { n: 2, label: "Basic information" },
+  { n: 3, label: "Academic details" },
+];
