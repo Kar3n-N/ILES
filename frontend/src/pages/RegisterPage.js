@@ -84,3 +84,20 @@ export default function RegisterPage() {
       </div>
     );
   }
+  return (
+    <div className="reg-page" data-theme={isDark ? "dark" : "light"}>
+      {/* Left panel */}
+      <div className="reg-panel">
+        <div>
+          <div className="reg-panel__brand">
+            <div className="reg-panel__logo"><GraduationCap size={20} color="#fff" /></div>
+            <div>
+              <p className="reg-panel__name">ILES</p>
+              <p className="reg-panel__tagline">Internship Logging & Evaluation System</p>
+            </div>
+          </div>
+          <h2 className="reg-panel__title">Create your account</h2>
+          <p className="reg-panel__desc">
+            Join ILES to start tracking, reviewing, or managing internships with a
+            role-based dashboard tailored for you.
+          </p>
