@@ -12,3 +12,16 @@
   padding: 40px;
 }
 @media (max-width: 1023px) { .reg-panel { display: none; } }
+
+.reg-panel__brand { display: flex; align-items: center; gap: 10px; margin-bottom: 48px; }
+.reg-panel__logo {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.reg-panel__name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+.reg-panel__tagline { font-size: 0.65rem; color: rgba(255,255,255,0.5); }
+.reg-panel__title { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 12px; }
+.reg-panel__desc { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 40px; }
+.reg-panel__steps { display: flex; flex-direction: column; gap: 16px; }
+.reg-panel__step { display: flex; align-items: center; gap: 12px; }
