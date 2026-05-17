@@ -25,3 +25,11 @@
 .reg-panel__desc { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 40px; }
 .reg-panel__steps { display: flex; flex-direction: column; gap: 16px; }
 .reg-panel__step { display: flex; align-items: center; gap: 12px; }
+.reg-panel__step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+  transition: background 0.2s;
+}
+.reg-panel__step-label { font-size: 0.875rem; color: #fff; transition: opacity 0.2s; }
+.reg-panel__footer { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
