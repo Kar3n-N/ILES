@@ -33,5 +33,13 @@ export default function OnboardingPage() {
           <div className="field__hint" style={{ marginTop: 12 }}>We'll email them an invite to confirm and create a supervisor account.</div>
         </Card>
 
+        <Card label="Placement dates">
+          <div className="row" style={{ gap: 12 }}>
+            <Field label="Start date" placeholder="2026-05-12" />
+            <Field label="End date" placeholder="2026-08-12" />
+          </div>
+        </Card>
+      </div>
+
 
 
