@@ -98,3 +98,22 @@
   font-size: 0.875rem; outline: none;
   transition: border-color 0.15s; box-sizing: border-box;
 }
+.reg-input--icon { padding-left: 36px; }
+.reg-input--pr { padding-right: 36px; }
+.reg-input:focus { border-color: var(--color-primary); }
+.reg-eye { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--color-text-muted); display: flex; align-items: center; }
+
+.reg-hint { font-size: 0.72rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6; }
+
+.reg-actions { display: flex; gap: 12px; }
+.reg-btn {
+  flex: 1; padding: 12px; border-radius: 10px;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  border: none; transition: opacity 0.15s, background 0.15s;
+}
+.reg-btn--primary { background: #1a365d; color: #fff; }
+.reg-btn--primary:hover:not(:disabled) { opacity: 0.88; }
+.reg-btn--primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.reg-btn--outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
+.reg-btn--outline:hover { background: var(--color-border); }
