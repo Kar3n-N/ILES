@@ -25,4 +25,13 @@ export default function OnboardingPage() {
           <Field label="Company name" placeholder="e.g. Acme Telecoms Ltd." />
         </Card>
 
+        <Card label="Workplace supervisor">
+          <div className="col" style={{ gap: 12 }}>
+            <Field label="Full name" placeholder="Mr. / Mrs. ___________" />
+            <Field label="Email address" placeholder="supervisor@company.com" />
+          </div>
+          <div className="field__hint" style={{ marginTop: 12 }}>We'll email them an invite to confirm and create a supervisor account.</div>
+        </Card>
+
+
 
