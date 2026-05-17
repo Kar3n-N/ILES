@@ -33,3 +33,16 @@
 }
 .reg-panel__step-label { font-size: 0.875rem; color: #fff; transition: opacity 0.2s; }
 .reg-panel__footer { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+.reg-form-area {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 40px 24px; overflow-y: auto;
+}
+.reg-form-wrap { width: 100%; max-width: 480px; }
+
+.reg-form-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.reg-back {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.875rem; color: var(--color-text-muted);
+  text-decoration: none; transition: color 0.15s;
+}
