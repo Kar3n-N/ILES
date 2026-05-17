@@ -73,3 +73,14 @@
   text-align: left; cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
+.reg-role:hover { border-color: #94a3b8; }
+.reg-role--selected { border-color: #1a365d; background: #ebf4ff; }
+.reg-page[data-theme="dark"] .reg-role--selected { background: rgba(26,54,93,0.25); }
+.reg-role__icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.reg-role__label { font-size: 0.82rem; font-weight: 600; color: var(--color-text); margin-bottom: 4px; }
+.reg-role__desc { font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.5; }
+.reg-role__check { display: flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 600; margin-top: 8px; }
