@@ -140,3 +140,13 @@
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 20px;
 }
+.reg-done__title { font-size: 1.2rem; font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
+.reg-done__sub { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 24px; }
+.reg-done__btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; padding: 12px; border-radius: 10px;
+  background: #1a365d; color: #fff;
+  text-decoration: none; font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.reg-done__btn:hover { opacity: 0.88; }
