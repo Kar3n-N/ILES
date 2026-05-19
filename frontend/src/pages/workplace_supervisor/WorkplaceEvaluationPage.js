@@ -7,3 +7,7 @@ const STUDENTS = [
     { id: 2, name: "Brian SSemanda" },
     { id: 3, name: "Carol Atim" },
 ];
+
+const CRITERIA = [
+    
+]
