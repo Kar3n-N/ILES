@@ -17,5 +17,13 @@ const CRITERIA = [
 ];
 
 export default function WorkplaceEvaluationPage() {
-    const []
+    const [studentId, setStudentId] = useState("");
+    const [ scores, setScores] = useState(Object.fromEntries(CRITERIA.map((c) => [c.key, ""])));
+
+    const total = CRITERIA.reduce((sum, c) => {
+        const v = parseInt(scores[c.key], 10);
+        return sum + (isNaN(v) ? 0 : Math.min(v, c.max));
+    }, 0);
+
+    
 }
