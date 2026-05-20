@@ -27,6 +27,18 @@ export default function WorkplaceEvaluationPage() {
 
      function setScore(key, val) { setScores((s) => ({ ...s, [key]: val })); }
 
-    function handleSubmit(e) { e.preventDefault(); /* TODO: wire to API */ } 
+    function handleSubmit(e) { e.preventDefault(); /* TODO: wire to API */ }
+    
+    return (
+        <div className="page">
+            <PageHead
+            title="Submit Evaluation"
+            sub="Score a student's internship performance."
+            actions={<Btn kind="primary" sm onClick={handleSubmit}>Submit evaluation</Btn>}
+        />
+        
+            </div>
+
+    )
     }
 }
