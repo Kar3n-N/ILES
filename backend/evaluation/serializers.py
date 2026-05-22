@@ -47,7 +47,7 @@ class EvaluationSerializer(serializers.ModelSerializer):
             "evaluated_at",
             "student_username",
         ]
-        read_only_fields = ["weighted_score", "evaluated_at", "evalutor"]
+        read_only_fields = ["weighted_score", "evaluated_at", "evalutor", "company_name", "student_username", "evalutor_type_display", "evalutor_username", "criteria_name", "criteria_weight"]
 
 
 class EvaluationCreateSerializer(serializers.ModelSerializer):
