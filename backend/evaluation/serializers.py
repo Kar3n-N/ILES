@@ -74,7 +74,7 @@ class EvaluationCreateSerializer(serializers.ModelSerializer):
                 if request.user.role != "internship_admin":
                     raise serializers.ValidationError(
                         {
-                            "placement": "You can only evalute student in your own supervised placements."
+                            "placement": "You can only evaluate students in your own supervised placements."
                         }
                     )
-                return data
+        return data
