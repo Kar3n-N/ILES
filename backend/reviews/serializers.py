@@ -12,7 +12,7 @@ class LogReviewSerializer(serializers.ModelSerializer):
 
     review_fullname = serializers.SerializerMethodField()
 
-    logbook_week = serializers.IntegerField(source="Logbook.week", read_only=True)
+    logbook_week = serializers.IntegerField(source="Logbook.week_number", read_only=True)
 
     student_username = serializers.CharField(
         source="Logbook.student.username", read_only=True
