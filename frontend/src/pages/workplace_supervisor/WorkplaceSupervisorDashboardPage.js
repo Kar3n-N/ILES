@@ -98,7 +98,7 @@ export default function WorkplaceSupervisorDashboardPage() {
 
   const org = user?.organization || "Your Organisation";
 
-  const awaitingCount = pending.length;
+  const awaitingCount = stats?.awaitingReview ?? pending.length;
 
   return (
     <div className="page">
