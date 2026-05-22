@@ -30,7 +30,7 @@ class LogReviewSerializer(serializers.ModelSerializer):
             "student_username",
             "reviewer",
             "reviewer_username",
-            "review_fullname",
+            "reviewer_fullname",
             "action_display",
             "comment",
             "action",
