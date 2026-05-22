@@ -31,7 +31,7 @@ function validatePassword(pwd) {
 }
 
 export default function RegisterPage() {
-  const { isDark, toggleDark } = useContext(ThemeContext);
+  const { isDark, toggleTheme: toggleDark } = useContext(ThemeContext);
   const [step, setStep]   = useState(1);
   const [role, setRole]   = useState("");
   const [form, setForm]   = useState({
