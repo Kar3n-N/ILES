@@ -72,6 +72,13 @@ export async function getProfile() {
   return request("/auth/profile/");
 }
 
+export async function updateProfile(data) {
+  return request("/auth/profile/", {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
 export async function getLogbooks() {
   return request("/logbook/");
 }
