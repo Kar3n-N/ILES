@@ -52,8 +52,8 @@ class LogReviewCreateSerializer(serializers.ModelSerializer):
     def validate_Logbook(self, value):
         if value.status not in ["pending", "reviewed"]:
             raise serializers.ValidationError(
-                f"Cannot review a logbook with the status '{value.status}'"
-                "Only submitted(pending) or previously reviewed logbooks can be reviewed."
+                f"Cannot review a logbook with status '{value.status}'. "
+                "Only submitted (pending) or previously reviewed logbooks can be reviewed."
             )
         return value
 
