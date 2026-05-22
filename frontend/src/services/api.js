@@ -64,8 +64,8 @@ export async function loginUser({ username, password }) {
 }
 
 export async function logoutUser() {
-  localStorage.removeItem("access_token");
-  localStorage.removeItem("refresh_token");
+  localStorage.removeItem("iles_auth_token");
+  localStorage.removeItem("iles_refresh_token");
 }
 
 export async function getProfile() {
