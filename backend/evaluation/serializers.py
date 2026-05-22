@@ -22,7 +22,7 @@ class EvaluationSerializer(serializers.ModelSerializer):
         source="evalutor.username", read_only=True
     )
     student_username = serializers.CharField(
-        source="placement.student.name", read_only=True
+        source="placement.student.username", read_only=True
     )
 
     class Meta:
