@@ -42,7 +42,8 @@ class EvaluationSerializer(serializers.ModelSerializer):
             "criteria_name",
             "criteria_weight",
             "score",
-            "weight_scoreis_finalised",
+            "weighted_score",
+            "is_finalised",
             "evaluated_at",
             "student_username",
         ]
