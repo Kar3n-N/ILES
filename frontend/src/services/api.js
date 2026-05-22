@@ -144,7 +144,7 @@ export function getReviews() {
 }
 
 export function createReview(data) {
-  return request("/review/", {
+  return request("/reviews/", {
     method: "POST",
     body: JSON.stringify(data),
   });
