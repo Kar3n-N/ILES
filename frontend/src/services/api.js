@@ -46,6 +46,10 @@ async function request(endpoint, options = {}) {
   return data;
 }
 
+export function getUsers() {
+  return request("/users/");
+}
+
 // ---- AUTH ENDPOINTS-----
 export async function loginUser({ username, password }) {
   const data = await request("/auth/login/", {
