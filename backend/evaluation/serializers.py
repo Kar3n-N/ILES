@@ -24,6 +24,9 @@ class EvaluationSerializer(serializers.ModelSerializer):
     student_username = serializers.CharField(
         source="placement.student.username", read_only=True
     )
+    evalutor_type_display = serializers.CharField(
+        source="get_evalutor_type_display", read_only=True
+    )
 
     class Meta:
         model = Evaluation
