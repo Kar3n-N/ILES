@@ -63,17 +63,24 @@ export default function StudentDashboardPage() {
     : user?.username ?? "there";
   const company = placement?.company_name ?? "your company";
   const position = placement?.position ?? "";
-  const weeksCompleted = logbooks.filter((l) => l.status === "approved").length;
+  const approvedLogbooks = logbooks.filter((l) => l.status === "approved");
+  const pendingLogbooks = logbooks.filter((l) => l.status === "pending");
+  const weeksCompleted = approvedLogbooks.length;
   const totalWeeks = 12;
   const logbookPct =
-    logbooks.length > 0 ? Math.round((weeksCompleted / totalWeeks) * 100) : 0;
+    totalWeeks > 0 ? Math.round((weeksCompleted / totalWeeks) * 100) : 0;
   const startDate = placement?.start_date ?? "—";
   const endDate = placement?.end_date ?? "—";
   const workplaceSup = placement?.supervisor_name ?? "—";
   const academicSup = "—";
-  const currentWeek = weeksCompleted + 1;
-  const pendingLogbooks = logbooks.filter((l) => l.status === "pending");
-  const activity = [];
+  const currentWeek = Math.min(weeksCompleted + 1, totalWeeks);
+  const lastEntry = logbooks.sort((a, b) => b.week_number - a.week_number)[0];
+  const activity = pendingLogbooks.map((l) => ({
+    done: false,
+    warn: true,
+    text: `Week ${l.week_number} logbook awaiting review`,
+    meta: l.submitted_at ? l.submitted_at.split("T")[0] : "submitted",
+  }));
   const upcoming = [];
 
   return (
