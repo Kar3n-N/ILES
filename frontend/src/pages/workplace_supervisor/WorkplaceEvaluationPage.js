@@ -31,42 +31,41 @@ export default function WorkplaceEvaluationPage() {
     
     return (
       <div className="page">
-        <PageHead
-          title="Submit Evaluation"
-          sub="Score a student's internship performance."
-          actions={<Btn kind="primary" sm onClick={handleSubmit}>Submit evaluation</Btn>}
-        />
-        <div className="grid grid--2">
-            <Card label="Student">
-                <div className="weval-group">
-                    <label className="weval-label">Select student</label>
-                    <select className="weval-select" value={studentId} onChange={(e)} => setStudentId(e.target.value)}>
-                      <option value="">Choose...</option>
-                      {STUDENTS.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
-                    </select>
-                </div> 
-            </Card>
-            <Card label="Total score">
-                <div className="weval-total">
-                    <span className="weval-total__value">{total}</span>
-                    <span className="weval-total__max">/100</span>
-                </div>
-                <p className="weval-total__hint">Fills as you enter scores below.</p>
-            </Card>
-        </div>
-        <Card label="Criteria">
-            <div className="weval-criteria">
-                {CRITERIA.map((c) => (
-                    <div key={c.key} className="weval-row">
-                        <div className="weval-row__meta">
-                            <span className="weval-row__label">{c.label}</span>
-                            <span className="weval-row__max">max {c.max}</span>
-                        </div>
-                        <input type="number" className="weval-input" min={0} max={c.max} value={scores[c.key] onChange={(e) => setScore(c.key,e.target.value)} placeholder="-" />
-                    </div>    
-                ))}
+            <PageHead
+                title="Submit Evaluation"
+                sub="Score a student's internship performance."
+                actions={<Btn kind="primary" sm onClick={handleSubmit}>Submit evaluation</Btn>} />
+            <div className="grid grid--2">
+                <Card label="Student">
+                    <div className="weval-group">
+                        <label className="weval-label">Select student</label>
+                        <select className="weval-select" value={studentId} onChange={(e) => setStudentId(e.target.value)}>
+                            <option value="">Choose...</option>
+                            {STUDENTS.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+                        </select>
+                    </div>
+                </Card>
+                <Card label="Total score">
+                    <div className="weval-total">
+                        <span className="weval-total__value">{total}</span>
+                        <span className="weval-total__max">/100</span>
+                    </div>
+                    <p className="weval-total__hint">Fills as you enter scores below.</p>
+                </Card>
             </div>
-        </Card>
+            <Card label="Criteria">
+                <div className="weval-criteria">
+                    {CRITERIA.map((c) => (
+                        <div key={c.key} className="weval-row">
+                            <div className="weval-row__meta">
+                                <span className="weval-row__label">{c.label}</span>
+                                <span className="weval-row__max">max {c.max}</span>
+                            </div>
+                            <input type="number" className="weval-input" min={0} max={c.max} value={scores[c.key]} onChange={(e) => setScore(c.key,e.target.value)} placeholder="-" />
+                        </div>    
+                    ))}
+                </div>
+            </Card>
       </div>
-            );
-        }        
+     );
+   }        
